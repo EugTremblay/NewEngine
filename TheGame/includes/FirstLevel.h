@@ -3,7 +3,7 @@
 
 
 
-class MainMenu : public IScene {
+class FirstLevel : public IScene {
 public:
     virtual void Load() override;
 };

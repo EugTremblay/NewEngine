@@ -1,7 +1,9 @@
 #pragma once
 
 typedef unsigned char uchar;
-
+/// <summary>
+/// simple Color struct using rgb
+/// </summary>
 class Color
 {
 public:

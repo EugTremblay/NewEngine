@@ -65,6 +65,12 @@ namespace homer
 		/// <returns></returns>
 		virtual bool IsKeyDown(int key) = 0;
 		/// <summary>
+		/// Checks if space got pressed
+		/// </summary>
+		/// <param name="key"></param>
+		/// <returns></returns>
+		virtual bool IsSpaceUp() = 0;
+		/// <summary>
 		/// Checks if a mouse button is down
 		/// </summary>
 		/// <param name="button"></param>

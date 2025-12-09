@@ -162,6 +162,7 @@ void SDLGraphics::DrawTexture(size_t id, const Color& color)
 
 void SDLGraphics::GetTextureSize(size_t id, int* w, int* h)
 {
+	SDL_QueryTexture(m_TextureCache[id], nullptr, nullptr, w, h);
 }
 
 size_t SDLGraphics::LoadFont(const std::string& filename, int fontSize)

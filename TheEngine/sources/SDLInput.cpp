@@ -10,9 +10,8 @@ SDLInput::SDLInput() {
 		
 	}
 
-	
 }
-
+bool spaceUp = false;
 void SDLInput::Update()
 {
 	m_KeyStates = SDL_GetKeyboardState(nullptr);
@@ -20,7 +19,24 @@ void SDLInput::Update()
 
 	SDL_Event _event;
 
+
+
+
+	
+
 	while (SDL_PollEvent(&_event)) {
+
+		if (_event.type == SDL_KEYUP)
+		{
+			SDL_Keycode code = _event.key.keysym.sym;
+
+			if (code == SDLK_SPACE)
+			{
+				SDL_Log("SPACE UP!");
+				spaceUp = true;
+			}
+			
+		}
 
 		switch (_event.type) {
 		case SDL_QUIT:
@@ -55,6 +71,13 @@ bool SDLInput::IsKeyDown(int key)
 {
 	return m_KeyStates[key];
 	
+}
+
+bool SDLInput::IsSpaceUp()
+{
+	bool s = spaceUp;
+	spaceUp = false;
+	return s;
 }
 
 bool SDLInput::IsButtonDown(int button)

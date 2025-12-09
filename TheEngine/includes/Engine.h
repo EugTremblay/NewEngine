@@ -5,6 +5,7 @@
 #include "IWorld.h"
 #include "IGraphics.h"
 #include "IAudio.h"
+#include"IPhysic.h"
 
 namespace homer {
 	class Engine final {
@@ -34,7 +35,13 @@ namespace homer {
 		/// </summary>
 		void Exit();
 		IInput* Input();
-		//IWorld* World();
+		IWorld* World() { return m_World; };
+		IGraphics* Graphics() { return m_Graphics; };
+		IAudio* Audio() { return m_Audio; };
+		/// <summary>
+		/// Closes the application and deletes everything
+		/// </summary>
+		void ShutDown();
 	private:
 		/// <summary>
 		/// processes all the player inputs
@@ -45,16 +52,16 @@ namespace homer {
 		/// Renders the game
 		/// </summary>
 		void Render();
-		/// <summary>
-		/// Closes the application and deletes everything
-		/// </summary>
-		void ShutDown();
+		
 	private:
+		
+		IWorld* m_World = nullptr;
+
 		IInput* m_Input = nullptr;
 		ILogger* m_Logger = nullptr;
-		IWorld* m_World = nullptr;
 		IGraphics* m_Graphics = nullptr;
 		IAudio* m_Audio = nullptr;
+		//IPhysic* m_Physic = nullptr;
 		bool m_IsRunning = false;
 		bool m_IsInit = false;
 		size_t m_TextTest = 0;

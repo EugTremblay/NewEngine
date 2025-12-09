@@ -9,6 +9,7 @@ class SDLInput final : public homer::IInput {
         virtual ~SDLInput() = default;
 
         virtual bool IsKeyDown(int key) override;
+        virtual bool IsSpaceUp() override;
         virtual bool IsButtonDown(int button) override;
         virtual void GetMousePos(int* x, int* y) override;
 private:
